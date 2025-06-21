@@ -348,34 +348,6 @@
         "className": "",
         "data": {
           "sourceHandle": {
-            "dataType": "MistralModel",
-            "id": "MistralModel-VKvMl",
-            "name": "model_output",
-            "output_types": [
-              "LanguageModel"
-            ]
-          },
-          "targetHandle": {
-            "fieldName": "model",
-            "id": "BatchRunComponent-NBbzS",
-            "inputTypes": [
-              "LanguageModel"
-            ],
-            "type": "other"
-          }
-        },
-        "id": "xy-edge__MistralModel-VKvMl{œdataTypeœ:œMistralModelœ,œidœ:œMistralModel-VKvMlœ,œnameœ:œmodel_outputœ,œoutput_typesœ:[œLanguageModelœ]}-BatchRunComponent-NBbzS{œfieldNameœ:œmodelœ,œidœ:œBatchRunComponent-NBbzSœ,œinputTypesœ:[œLanguageModelœ],œtypeœ:œotherœ}",
-        "selected": false,
-        "source": "MistralModel-VKvMl",
-        "sourceHandle": "{œdataTypeœ:œMistralModelœ,œidœ:œMistralModel-VKvMlœ,œnameœ:œmodel_outputœ,œoutput_typesœ:[œLanguageModelœ]}",
-        "target": "BatchRunComponent-NBbzS",
-        "targetHandle": "{œfieldNameœ:œmodelœ,œidœ:œBatchRunComponent-NBbzSœ,œinputTypesœ:[œLanguageModelœ],œtypeœ:œotherœ}"
-      },
-      {
-        "animated": false,
-        "className": "",
-        "data": {
-          "sourceHandle": {
             "dataType": "File",
             "id": "File-nzyRy",
             "name": "dataframe",
@@ -874,7 +846,7 @@
                 "title_case": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "Retrieved content: {context}\n\nSource URLs: {source}\n\n---\n\nGiven the retrieved content above, answer the question in simple language with facts don't hallucinate. Include in your Source URLs without duplicates\n\nQuestion: {question}\n\nAnswer: "
+                "value": "Retrieved content: {context}\n\nSource URLs: {source}\n\n---\n\nGiven the retrieved content above, answer the question in simple language with facts don't hallucinate. Include in your Source URLs without duplicates\n\nRember to keep your answers below the 1000 characters limit since you will need to send the output in a text message later.\n\nQuestion: {question}\n\nAnswer: "
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -3637,7 +3609,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "You are a senior advisor who works at the Citizen Advice Service and you are really good at providing factual answers based on the Citizen Advice Service website content"
+                "value": "You are a senior advisor who works at the Citizen Advice Service and you are really good at providing factual answers based on the Citizen Advice Service website content. "
               },
               "temperature": {
                 "_input_type": "FloatInput",
@@ -4782,9 +4754,9 @@
       }
     ],
     "viewport": {
-      "x": 42.7510423880949,
-      "y": 119.5534218487307,
-      "zoom": 0.2685534587037753
+      "x": 101.94953564164712,
+      "y": 105.489692340717,
+      "zoom": 0.23976578985594033
     }
   },
   "description": "Load your data for chat context with Retrieval Augmented Generation.",
