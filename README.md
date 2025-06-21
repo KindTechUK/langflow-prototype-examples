@@ -1,5 +1,7 @@
 # Langflow RAG Project: Citizen Advice Benefits Assistant
 
+🎥 **[Watch Demo Video](https://www.loom.com/share/6922210a494f4c9c96dc2dffaef07041?sid=50132200-f573-41f6-a2c9-6511546e825f)** - See the system in action!
+
 This project implements a Retrieval-Augmented Generation (RAG) system using Langflow to create an AI assistant that can answer questions about UK benefits using information from the Citizens Advice website.
 
 ## 🎯 Project Overview
