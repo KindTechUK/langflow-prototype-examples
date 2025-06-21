@@ -100,6 +100,76 @@ If you prefer the Python package version:
    - Click "Save" to store your API keys
    - The keys will be securely stored and used by the flow components
 
+## 📱 Sharing Your Prototype via SMS
+
+While deploying this prototype to the internet with cloud services and Docker is out of scope for this demonstration, you can still share your working prototype with colleagues and end users for valuable feedback using SMS integration.
+
+### Why SMS Integration?
+
+This approach allows you to:
+- **Get real user feedback** without complex deployment
+- **Test with actual end users** in a familiar medium (text messages)
+- **Validate your prototype** before investing in full deployment
+- **Gather insights** on user needs and pain points
+- **Demonstrate value** to stakeholders with working examples
+
+### Setup Instructions
+
+Follow the detailed instructions in the `twilio/` folder:
+
+1. **Install Dependencies:**
+   ```bash
+   pip install flask twilio python-dotenv requests
+   ```
+
+2. **Set Up Twilio Account:**
+   - Sign up for a free Twilio account at [twilio.com](https://twilio.com)
+   - Purchase a phone number (free trial available)
+   - Get your Account SID and Auth Token
+
+3. **Configure Environment Variables:**
+   Create a `.env` file in the `twilio/` directory with your Twilio credentials
+
+4. **Set Up ngrok for Local Development:**
+   - Install and authenticate ngrok
+   - Use the provided `run_ngrok.sh` script for easy setup
+
+5. **Configure Twilio Webhook:**
+   - Point your Twilio phone number's webhook to your ngrok URL + `/webhook`
+
+6. **Run the Application:**
+   - Start your Langflow server (port 7860)
+   - Start the Twilio webhook server (port 8888)
+   - Start ngrok tunnel
+
+### How It Works
+
+1. **User sends SMS** to your Twilio phone number
+2. **Twilio webhook** receives the message
+3. **API request** is sent to your Langflow flow
+4. **RAG system** processes the question using Citizens Advice data
+5. **Response** is sent back to the user via SMS
+
+### Example User Interactions
+
+Users can ask questions like:
+- "What is Universal Credit?"
+- "How do I apply for Housing Benefit?"
+- "Am I eligible for Personal Independence Payment?"
+- "What benefits are available for disabled people?"
+
+The system will respond with helpful, contextual information from the Citizens Advice knowledge base.
+
+### Benefits for Prototyping
+
+- **Low barrier to entry** - Users just need to send a text message
+- **Real-world testing** - Test with actual user scenarios
+- **Immediate feedback** - Get responses and reactions quickly
+- **Cost-effective** - Minimal setup costs compared to full deployment
+- **Scalable feedback** - Easy to share with multiple stakeholders
+
+For complete setup instructions, see the `twilio/README.md` file.
+
 ## 🎮 Using the RAG System
 
 ### Step 4: Run the Flow
@@ -198,11 +268,18 @@ Understanding the costs involved in running this RAG system:
 - **Pricing:** Based on token usage (very cost-effective for embeddings)
 - **Alternative:** You can replace OpenAI embeddings with Mistral AI embeddings to reduce costs
 
+### **Twilio SMS Integration**
+- **Free Trial:** 15,000 free SMS messages
+- **Paid Tier:** ~$0.0075 per SMS (US/UK numbers)
+- **Phone Number:** ~$1/month per number
+- **Recommendation:** Free trial is sufficient for prototyping and initial user testing
+
 ### **Total Cost Estimate**
 - **Setup:** $0 (Langflow OSS is free)
 - **Per Query:** ~$0.005 (mainly OpenAI embeddings)
-- **Monthly (100 queries):** ~$0.50
-- **Monthly (1000 queries):** ~$5.00
+- **Per SMS:** ~$0.0075 (Twilio)
+- **Monthly (100 queries via SMS):** ~$1.25
+- **Monthly (1000 queries via SMS):** ~$12.50
 
 ### **Cost Optimization Tips**
 1. **Use Mistral AI for both embeddings and generation** to eliminate OpenAI costs
@@ -210,6 +287,7 @@ Understanding the costs involved in running this RAG system:
 3. **Monitor usage** through your API provider dashboards
 4. **Set up usage alerts** to avoid unexpected charges
 5. **Consider caching** frequently asked questions to reduce API calls
+6. **Use Twilio free trial** for initial prototyping and user testing
 
 ## 📚 Additional Resources
 
